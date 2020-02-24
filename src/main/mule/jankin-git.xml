@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<http:listener-config name="HTTP_Listener_config" doc:name="HTTP Listener config" doc:id="6d0ad118-4dd9-4a39-98b6-33d7f7a67947" >
+		<http:listener-connection host="0.0.0.0" port="8081" />
+	</http:listener-config>
+	<flow name="jankin-gitFlow" doc:id="b8a45bdf-ebc8-4684-a11a-f88b681909c7" >
+		<http:listener doc:name="Listener" doc:id="abe4b5a4-6776-4ce4-a220-6a430cb93f21" config-ref="HTTP_Listener_config" path="/git"/>
+		<set-payload value="my first practies" doc:name="Set Payload" doc:id="0e11a96c-eb6c-48a0-9485-945115405333" />
+		<logger level="INFO" doc:name="Logger" doc:id="ff023bae-dc4c-4f07-a636-e27d28d110bd" />
+	</flow>
+</mule>
